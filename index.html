@@ -1,32 +1,167 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sonata of a Flame</title>
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>MUSICAL PLAYLIST</title>
+        <link rel="stylesheet" type="text/css" href="index_common.css">
+
         <style>
-            header{
-            position: fixed;
-            display: flex;
-            justify-content: space-between;
-            width: 99vw;
-            height: flex;
-            padding: 30px;
-            background-color: aqua;
-            }
-            header h1{
-                margin: 0px;
-            }
-            header>div>img{
-                margin: 13px 0px;
+                body{
+                background-color: grey;
             }
 
+            .main_content img {
+            width: 100%;
+            height: auto;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+            cursor: pointer;
+        }
+        .main_content img:hover {
+            filter: none;
+        }
+
+    </style>
         </style>
     </head>
-    <header>
-        <h1>Sonata of a Flame</h1>
-        <h2>I'll just pass the timesssas by attending a performance with this ticket..</h2>
-    </header>
-
     <body>
+<!-- header -->
+        <header id="fixed-header"> <!--헤더 위치 고정 위한 id-->
+            <section id="top">
+                <a logo="logo" href="index.html" ><img src="flogo.png"></a>
 
-    </body>
+
+                <!-- menu icon -->
+                <img id="toggle-btn"  src="=.png" style="width: 40px; height:40px;" alt="Toggle Sidebar" >
+
+                <div id="sidebar">
+                    <a href="zoo.html">다시,동물원</a>
+                    <a href="widerstand.html">비더슈탄트</a>
+                    <a href="smoke.html">스모크</a>
+                    <a href="winterreise.html">겨울나그네</a>
+                    <a href="maryshelley.html">메리셸리</a>
+                    <a href="sonata.html">광염소나타</a>
+                    <a href="fanletter.html">팬레터</a>
+                    <a href="thrillme.html">쓰릴미</a>
+                    <a href="nexttonormal.html">넥스트투노멀</a>
+                    <a href="dearevanhansen.html">디어에반핸슨</a>
+
+
+
+
+
+                </div>
+            
+                <script>
+
+                const toggleBtn = document.getElementById('toggle-btn');
+                const sidebar = document.getElementById('sidebar');
+                const links = sidebar.querySelectorAll('a');
+
+                toggleBtn.addEventListener('click', function() {
+                    if (sidebar.style.left === '-60%') {
+                        sidebar.style.left = '0';
+                    } else {
+                        sidebar.style.left = '-60%';
+                    }
+
+                });
+
+                links.forEach(link => {
+                    link.addEventListener('click', function() {
+                        links.forEach(l => l.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                });
+
+
+                </script>
+            
+
+
+            </section>
+            <nav id="second_section">
+                <ul>
+                <li><a href="kimbada.html" class="hover_icon"><img src="bada.png" style="width: 40px; height:40px;"></a></li>
+                <li><a href="smoke.html" class="hover_icon"><img src="smoke.png" style="width: 40px; height:40px;"></a></li>
+                <li><a href="fanletter.html" class="hover_icon"><img src="fanletter.png" style="width: 40px; height:40px;"></a></li>
+                <li><a href="sonata.html" class="hover_icon"><img src="sonata.png" style="width: 40px; height:40px;"></a></li>
+                <li><a href="thrillme.html" class="hover_icon"><img src="thrillme.png" style="width: 40px; height:40px;"></a></li>
+                </ul>
+            </section>
+        </header>
+<!-- / header -->
+
+        <div style="margin-top: 120px;"></div> <!-- 페이지 콘텐츠가 헤더와 겹치지 않도록 -->
+
+
+        <div class="clear"></div>
+
+
+
+
+
+
+
+
+<!-- image -->
+<div class="main_content">
+    <img src="widerstand1.png" style="width:100%; height:auto;">
+
+
+
+        <div class="main_content">
+            <img src="wid11.png" style="width:100%; height:auto;">
+
+            <div class="main_content">
+                <img src="wid7.png" style="width:100%; height:auto;">
+
+            <div class="main_content">
+                <img src="wid4.png" style="width:100%; height:auto;">
+
+            <div class="main_content">
+                <img src="wid3.png" style="width:100%; height:auto;">
+        
+        <div class="clear"></div>
+
+
+<!-- footer -->
+    <footer>
+        <section id="footer_box"> <!--footer_box-->
+            <!-- <div id="footer_btn">TOP</div> -->
+
+                <!-- TOP 링크 -->
+            <a href="#top" class="footer_btn" onclick="scrollToTop()">▲ Back to Top</a>
+
+            <script>
+                function scrollToTop() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            </script>
+
+
+            <p>©MUSICAL PLAYLIST 2024. All rights reserved.</p>
+            <p>Embedded videos are property of their respective copyright holders and hosted on YouTube.</p>
+            <p>This site does not own any of the embedded videos. All content is subject to YouTube's copyright policies.</p>
+
+        </section> <!--/footer_box-->
+
+        
+    </footer>
+
+
+    <!-- navigation -->
+    <!-- <section id="navigation">
+        <div id="i1"><a class="itext" href="#p1">나비</a></div>
+        <div id="i2"><a class="itext" href="#p2">바다</a></div>
+        <div id="i3"><a class="itext" href="#p3">니바</a></div>
+    </section> -->
+
+
+
+
+
+        </body>
+    </html>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>영상 및 텍스트 전환하기</title>
+<style>
+  .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+  }
+  .video-container iframe {
+    width: 100%;
+    height: 315px; /* YouTube 영상의 높이 */
+    display: block;
+  }
+  .text-container {
+    margin-top: 10px;
+  }
+  .button-container {
+    margin-top: 10px;
+  }
+  .button-container button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+<div class="video-container">
+  <iframe id="videoPlayer" src="https://www.youtube.com/embed/3fiEW4nWvsE?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="text-container" id="textContent">
+    <p id="videoDescription">OpenAI ChatGPT 설명 영상입니다.</p>
+  </div>
+  <div class="button-container">
+    <button onclick="playVideo(0)">영상 1</button>
+    <button onclick="playVideo(1)">영상 2</button>
+    <button onclick="playVideo(2)">영상 3</button>
+    <!-- 필요한 만큼 버튼을 추가할 수 있습니다 -->
+  </div>
+</div>
+
+<script>
+  var videos = [
+    {
+      src: 'https://www.youtube.com/embed/3fiEW4nWvsE?autoplay=1',
+      description: 'OpenAI ChatGPT 설명 영상입니다.',
+      duration: 120 // 영상 길이 (초)
+    },
+    {
+      src: 'https://www.youtube.com/embed/ClC1nliX__8?feature=shared&t=5&autoplay=1&start=4',
+      description: '다른 영상 제목',
+      duration: 213 // 영상 길이 (초)
+    },
+    {
+      src: 'https://www.youtube.com/embed/GMqSSWmBU88?autoplay=1',
+      description: '새로운 영상 제목',
+      duration: 300 // 새로운 영상 길이 (초)
+    }
+    // 필요한 만큼 영상 추가
+  ];
+
+  var currentVideoIndex = 0;
+  var videoPlayer = document.getElementById('videoPlayer');
+  var videoDescription = document.getElementById('videoDescription');
+  var videoTimeout;
+
+  function playVideo(index) {
+    clearTimeout(videoTimeout); // 기존 타이머 제거
+    currentVideoIndex = index;
+    loadVideo(currentVideoIndex);
+  }
+
+  function loadVideo(index) {
+    var video = videos[index];
+    videoPlayer.src = video.src;
+    videoDescription.innerText = video.description;
+    videoTimeout = setTimeout(function() {
+      currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+      loadVideo(currentVideoIndex);
+    }, video.duration * 1000); // 영상 길이에 맞춰 타이머 설정
+  }
+
+  // 초기 영상 로드
+  loadVideo(currentVideoIndex);
+</script>
+
+</body>
+</html>

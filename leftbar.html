@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle Sidebar</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        #sidebar {
+            height: 100%;
+            width: 30%;
+            position: fixed;
+            top: 0;
+            left: -30%;
+            background-color: #111;
+            color: white;
+            transition: 0.3s;
+            padding-top: 60px;
+        }
+        #sidebar a {
+            padding: 10px 15px;
+            text-decoration: none;
+            color: white;
+            display: block;
+        }
+        #sidebar a:hover {
+            background-color: #575757;
+        }
+        #toggle-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <img id="toggle-btn" src="=.png" style="width: 40px; height:40px;" alt="Toggle Sidebar">
+
+    <div id="sidebar">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </div>
+
+    <script>
+        const toggleBtn = document.getElementById('toggle-btn');
+        const sidebar = document.getElementById('sidebar');
+
+        toggleBtn.addEventListener('click', function() {
+            if (sidebar.style.left === '-30%') {
+                sidebar.style.left = '0';
+            } else {
+                sidebar.style.left = '-30%';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+<!-- <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+
+        /* 기본 스타일 설정 */
+        /* #wrap {
+            position: relative;
+            width:100%;
+            height:100vh;
+            background:blanchedalmond;
+            overflow:hidden;
+
+        } */
+
+        /* 전체 컨테이너 스타일 */
+        header {
+            display: flex;
+            justify-content: space-between;
+            width:100%;
+            height:80px;
+            padding:10px;
+            background:mediumpurple;
+        }
+
+        /* 헤더 스타일 */
+        nav {
+            position: absolute;
+            top:80px;
+            right:-20%;
+            width:20%;
+            height:calc(100vh - 80px);
+            background:aquamarine;
+            transition: all .5s linear;
+        }
+
+        /* 네비게이션 패널 스타일, 기본적으로 화면 밖에 위치 */
+        nav.active {
+            right:0;
+        }
+
+        /* 네비게이션 패널 활성화 시 화면 안으로 슬라이드 */
+        .model {
+            text-align: center;
+            display: none;
+            position:absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%, -50%);
+        /*x축 Y축으로 내 크기의 50%씩 만큼 올려주세여*/
+
+        width:500px;
+            height:400px;
+            background: cornflowerblue;;
+            border:1px solid #acc;
+
+        }
+
+        /* 모달 창 기본 스타일 */
+        .model.active {
+            display:block;
+
+        }
+
+        /* 모달 창 활성화 시 보이도록 설정 */
+        .box {
+            width:100px;
+            height:100px;
+            background:lightpink;
+            transition:all .10s linear;
+            position:absolute;
+
+        }
+
+        /* 기본 박스 스타일 */
+        .box.add {
+            width:80%;
+            height:100%;
+        }
+
+
+
+    </style>
+
+
+<body>
+
+
+
+
+<div id="wrap">
+    <header>
+        <h1>Best Theater of 2024</h1>
+        <button class="btn-ham"><img src="bada.png" style="width: 40px; height:40px;"></button>
+
+
+
+    </header>
+
+    헤더 및 햄버거 버튼 -->
+
+    <!-- 모달 창 내용 -->
+    <!-- <nav>
+        <button class="add">화면 가리기</button>
+        <button class="remove">화면 보여주기</button>
+
+    </nav> -->
+
+
+    <!-- 네비게이션 패널 및 버튼 -->
+    <!-- <div class="box">
+        <h4> Seoyeon's One Pick!!</h4>
+    </div> -->
+
+    <!-- 박스 요소 -->
+    <!-- <script>
+
+        let box = document.querySelector('.box');
+        let addBtn = document.querySelector('.add');
+        let removeBtn = document.querySelector('.remove');
+
+        /* add 버튼 클릭 시 박스에 add 클래스 추가 */
+        addBtn.addEventListener('click', () => {
+
+            box.classList.add('add');
+        })
+
+        /* remove 버튼 클릭 시 박스에서 add 클래스 제거 */
+        removeBtn.addEventListener('click',() => {
+            box.classList.remove('add');
+
+        })
+
+    </script>
+</div>
+
+<script>
+
+    let ham = document.querySelector('.btn-ham');
+    let modelBtn = document.querySelector('.btn-model');
+    let model = document.querySelector('.model')
+
+
+    let nav = document.querySelector('nav');
+
+    ham.addEventListener('click', () =>{
+
+        nav.classList.toggle('active');
+
+    })
+
+    /* 햄버거 버튼 클릭 시 네비게이션 패널에 active 클래스 토글 */
+
+    modelBtn.addEventListener('click', () =>{
+
+        model.classList.toggle('active')
+    })
+
+    /* model 버튼 클릭 시 모달 창에 active 클래스 토글 */
+
+</script>
+
+
+</body>
+</html> -->
